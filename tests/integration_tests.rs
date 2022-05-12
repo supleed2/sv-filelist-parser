@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
-use verilog_filelist_parser;
+use sv_filelist_parser;
 
 #[test]
 fn simple_test() {
@@ -13,7 +13,7 @@ fn simple_test() {
     defines.insert("ENV_VAR3".to_string(), Some("var3".to_string()));
     defines.insert("RTL".to_string(), None);
 
-    let filelist_exp = verilog_filelist_parser::Filelist {
+    let filelist_exp = sv_filelist_parser::Filelist {
         files: vec![
             PathBuf::from("testcase/file1.sv"),
             PathBuf::from("testcase/file2.sv"),
@@ -31,6 +31,6 @@ fn simple_test() {
     std::env::set_var("VAR2", "ENV_VAR2");
     std::env::set_var("VAR3", "ENV_VAR3");
 
-    let filelist = verilog_filelist_parser::parse_file("testcase/files.f").expect("Error parsing");
+    let filelist = sv_filelist_parser::parse_file("testcase/files.f").expect("Error parsing");
     assert_eq!(filelist_exp, filelist);
 }
