@@ -1,11 +1,10 @@
 # SystemVerilog Filelist Parser
 
-A library in Rust to parse a SystemVerilog Filelist and return
-a list of files, include directories and defines.
+A Rust library to parse a SystemVerilog Filelist and return lists of files,
+include directories, and preprocessor macro definitions.
 
-Environment variables optionally enclosed in paranthesis or
-curly braces (i.e. `$`, `$()` or `${}`) will be automatically
-substituted.
+Environment variables, optionally enclosed in parenthesis or curly braces
+(e.g. `$FOO`, `$(FOO)` or `${FOO}`), will be substituted.
 
 ## Example
 
